@@ -1,4 +1,4 @@
-CREATE DATABASE IF NOT EXISTS l2c_lekcia_12;
+CREATE DATABASE IF NOT EXISTS L2C_KE_PHP_CMS;
 
 CREATE TABLE IF NOT EXISTS Users(
             id int AUTO_INCREMENT,
@@ -20,3 +20,5 @@ CREATE TABLE IF NOT EXISTS Pages(
 );
 
 INSERT INTO Users (email, password, nick) VALUES ('adamharajda@gmail.com', 'admin', 'admin');
+
+INSERT INTO Pages (title, content, user_ID, menu_label, menu_order) VALUES ('Welcome', 'lorem upsum', 1, "welcome", 0);
