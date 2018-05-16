@@ -3,7 +3,7 @@
 
 function db_connect(){
 
-    require_once dirname(__FILE__)."/../config/database.php";
+    include dirname(__FILE__)."/../config/database.php";
     return mysqli_connect( $database["host"], $database["user"], $database["pass"], $database["name"], $database["port"]);
 
 }
