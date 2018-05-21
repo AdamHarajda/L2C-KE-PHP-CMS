@@ -27,4 +27,10 @@ function db_get($sql_string){
 
     return $data;
 }
+
+function db_single($sql_string){
+
+    $result = db_query($sql_string);
+    return mysqli_fetch_object($result);
+}
 ?>
