@@ -1,5 +1,33 @@
 <?php
 require_once dirname(__FILE__)."/../framework/helpers.php";
+require_once dirname(__FILE__)."/../framework/loggedin.php";
+
+if(!empty($_POST)){
+
+	if(!empty($_POST['action'])){
+		switch ($_POST['action']) {
+			case "insert":
+				if( !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['nickname']) ){
+					db_query("INSERT INTO Users (email, pass, nick) VALUES ('".$_POST['email']."', '".$_POST['password']."', '".$_POST['nickname']."')");
+				}
+			break;
+
+			case "update":
+				if( !empty($_POST['id']) ){
+					if( !empty($_POST['email']) && !empty($_POST['nickname']) ){
+						db_query("UPDATE Users SET email = '".$_POST['email']."', nick = '".$_POST['nickname']."' WHERE id = '".$_POST['id']."'");
+					}
+				}
+			break;
+
+			case "delete":
+				if( !empty($_POST['id']) ){
+					db_query("DELETE FROM Users WHERE id = '".$_POST['id']."'");
+				}
+			break;
+		}
+	}
+}
 $users = db_get("SELECT * FROM Users");
 
 ?>

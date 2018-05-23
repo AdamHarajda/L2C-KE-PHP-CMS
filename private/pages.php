@@ -1,5 +1,33 @@
 <?php
 require_once dirname(__FILE__)."/../framework/helpers.php";
+require_once dirname(__FILE__)."/../framework/loggedin.php";
+
+if(!empty($_POST)){
+
+	if(!empty($_POST['action'])){
+		switch ($_POST['action']) {
+			case "insert":
+				if( !empty($_POST['title']) && !empty($_POST['menu_label']) && !empty($_POST['content']) ){
+					db_query("INSERT INTO Pages (title, menu_label, content) VALUES ('".$_POST['title']."', '".$_POST['menu_label']."', '".$_POST['content']."')");
+				}
+			break;
+
+			case "update":
+				if( !empty($_POST['id']) ){
+					if( !empty($_POST['title']) && !empty($_POST['menu_label']) && !empty($_POST['content'])){
+						db_query("UPDATE Pages SET title = '".$_POST['title']."', menu_label = '".$_POST['menu_label']."', content = '".$_POST['content']."' WHERE id = '".$_POST['id']."'");
+					}
+				}
+			break;
+
+			case "delete":
+				if( !empty($_POST['id']) ){
+					db_query("DELETE FROM Pages WHERE id = '".$_POST['id']."'");
+				}
+			break;
+		}
+	}
+}
 $pages = db_get("SELECT * FROM Pages");
 ?>
 <!DOCTYPE html>

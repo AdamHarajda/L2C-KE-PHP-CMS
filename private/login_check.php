@@ -16,7 +16,10 @@ if (isset($_POST)) {
 
             if($user->password === $password)
             {
-                echo $email." ".$password;
+                /*echo $email." ".$password;*/
+                session_start();
+                $_SESSION["email"]= $email;
+                header("Location: index.php");
             }
             else{
                 echo "Zle heslo!";
