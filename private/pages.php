@@ -26,6 +26,7 @@ if(!empty($_POST)){
 				}
 			break;
 		}
+		header("Location: pages.php");//
 	}
 }
 $pages = db_get("SELECT * FROM Pages");
@@ -59,6 +60,7 @@ $pages = db_get("SELECT * FROM Pages");
                                     <th>menu_label</th>
                                     <th>menu_order</th>
                                     <th>autor</th>
+									<th>actions</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -72,7 +74,8 @@ $pages = db_get("SELECT * FROM Pages");
                                         echo "<th>$page->menu_label</th>";
                                         echo "<th>$page->menu_order</th>";
                                         echo "<th>".db_single("SELECT * FROM Users WHERE id = '".$page->user_id."'")->nick."</th>";
-                                        echo "</tr>";
+										echo '<th><a href="page.php?id='.$page->id.'">UPDATE</a></th>';
+										echo "</tr>";
                                     }
                                 ?>
 							</tbody>

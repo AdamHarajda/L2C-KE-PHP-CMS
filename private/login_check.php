@@ -19,6 +19,8 @@ if (isset($_POST)) {
                 /*echo $email." ".$password;*/
                 session_start();
                 $_SESSION["email"]= $email;
+                $_SESSION["id"]= $user->id;
+
                 header("Location: index.php");
             }
             else{

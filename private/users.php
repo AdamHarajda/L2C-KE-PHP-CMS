@@ -26,6 +26,7 @@ if(!empty($_POST)){
 				}
 			break;
 		}
+		header("Location: users.php");
 	}
 }
 $users = db_get("SELECT * FROM Users");
@@ -57,6 +58,7 @@ $users = db_get("SELECT * FROM Users");
 									<th>email</th>
 									<th>nick</th>
 									<th>id</th>
+									<th>actions</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -66,8 +68,8 @@ $users = db_get("SELECT * FROM Users");
                                         echo "<tr>";
                                         echo "<th>$user->email</th>";
                                         echo "<th>$user->nick</th>";
-                                        echo "<th>$user->id</th>";
-                                        echo "</tr>";
+										echo "<th>$user->id</th>";
+										echo '<th><a href="user.php?id='.$user->id.'">Update</a></th>';                                        echo "</tr>";
                                     }
                                 ?>
 							</tbody>

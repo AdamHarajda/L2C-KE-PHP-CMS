@@ -22,6 +22,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Blog Template for Bootstrap</title>
+    <link href="assets/css/main.css" rel="stylesheet">
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   </head>

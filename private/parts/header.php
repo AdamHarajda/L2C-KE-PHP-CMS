@@ -14,7 +14,11 @@
                 <li><a href="index.php">Dashboard</a></li>
                 <li><a href="users.php">Users</a></li>
                 <li><a href="pages.php">Pages</a></li>
+                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION['email']; ?> <span class="caret"></span></a><ul class="dropdown-menu"><li><a href="#" onclick="javascript: document.getElementById('logout').submit()">Logout</a></li></ul></li>
             </ul>
         </div>
     </div>
+    <form id="logout" action="logout.php" method="POST">
+        <input type="hidden" name="id" value="<?php echo !empty($_SESSION['id']) ? $_SESSION['id'] : "" ?>">
+    </form>
 </nav>
